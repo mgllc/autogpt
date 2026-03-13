@@ -74,6 +74,10 @@ class ExecutionContext(BaseModel):
     """
     Unified context that carries execution-level data throughout the entire execution flow.
     This includes information needed by blocks, sub-graphs, and execution management.
+
+    OODA Loop integration: the optional ``ooda_stage`` field tracks which phase of the
+    Observe → Orient → Decide → Act cycle the current node belongs to.  It is set
+    automatically by OODA-aware blocks and is surfaced in execution telemetry.
     """
 
     model_config = {"extra": "ignore"}
@@ -100,6 +104,9 @@ class ExecutionContext(BaseModel):
     # Workspace
     workspace_id: Optional[str] = None
     session_id: Optional[str] = None
+
+    # OODA Loop stage (GovDOSS / mission-driven execution framework)
+    ooda_stage: Optional[str] = None
 
 
 # -------------------------- Models -------------------------- #
