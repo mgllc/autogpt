@@ -88,6 +88,7 @@ class BlockCategory(Enum):
     PRODUCTIVITY = "Block that helps with productivity"
     ISSUE_TRACKING = "Block that helps with issue tracking"
     MULTIMEDIA = "Block that interacts with multimedia content"
+    OODA = "Block that implements the OODA (Observe-Orient-Decide-Act) loop pattern."
     MARKETING = "Block that helps with marketing"
 
     def dict(self) -> dict[str, str]:
